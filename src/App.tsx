@@ -6,7 +6,7 @@ import BookingPage from './pages/BookingPage/BookingPage';
 
 function App() {
   return (
-    <div className="App">
+    <div>
      
       <Routes>
         <Route path="/home" element={<SharedLayout/>}/>
