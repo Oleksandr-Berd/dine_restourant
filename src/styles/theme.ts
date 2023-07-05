@@ -61,6 +61,7 @@ const theme: object = {
   weight: {
     bold: "700",
     normal: "400",
+    light: "48",
   },
 
   fontFamily: {

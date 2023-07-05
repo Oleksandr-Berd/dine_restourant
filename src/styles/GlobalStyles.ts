@@ -1,10 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyles: any = createGlobalStyle`
+export const GlobalStyles: React.FC = createGlobalStyle`
 
 body{
     font-family: "LeagueSpartan-Regular";
-
+margin: 0;
 }
 
   h1, h2, h3, h4, h5, h6 {
