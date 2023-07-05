@@ -69,6 +69,8 @@ const theme: object = {
     text: "LeagueSpartan-Regular",
   },
   color: {
+    border: "#979797",
+    backgroundDark: "#111",
     background: "#17192B",
     backgroundSecondary: "#F2F2F2",
     text: "#242b37",

@@ -10,36 +10,6 @@ export const CommonContainer = styled.div`
   background-color: ${(props) => props.theme.color.backgroundSecondary};
 `;
 
-export const FiguresContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  margin-bottom: ${(props) => props.theme.space[9]};
-`;
-
-export const Circle = styled.div`
-  width: 7px;
-  height: 7px;
-
-  margin-right: ${(props) => props.theme.space[2]};
-
-  border-radius: ${(props) => props.theme.radius[5]};
-  border: 1px solid ${(props) => props.theme.color.accent};
-
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-`;
-
-export const Line = styled.div`
-  width: 56px;
-  height: 1px;
-
-  background-color: ${(props) => props.theme.color.accent};
-
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-`;
-
 export const Title = styled.h1`
   margin-bottom: 13px;
 
@@ -57,11 +27,22 @@ export const Text = styled.p`
 export const Image = styled.img`
   transform: translateY(-72px);
 
+  width:327px; 
+  height:400px;
+
+  margin-left: auto;
+  margin-right: auto;
+
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 `;
 
 export const LocalImage = styled.img`
+  width: 327px;
+  height: 400px;
+
   margin-bottom: ${(props) => props.theme.space[11]};
+  margin-left: auto;
+  margin-right: auto;
 
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 `;
