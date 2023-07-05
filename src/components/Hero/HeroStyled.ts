@@ -55,7 +55,7 @@ text-transform: uppercase;
 
 font-size: 17px;
 font-weight: ${props => props.theme.weight.normal};
-color: ${props => props.theme.color.backgroundSecondary};
+color: ${props => props.theme.color.textSecondary};
 
 border: 1px solid ${props => props.theme.color.backgroundSecondary};
 `

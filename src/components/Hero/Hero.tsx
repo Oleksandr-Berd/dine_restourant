@@ -3,7 +3,6 @@ import React from 'react';
 import * as SC from "./HeroStyled"
 
 import heroMobile from "../../assets/images/homepage/hero-bg-mobile@2x.jpg"
-import { NavLink } from "react-router-dom";
 
 const Hero = (): JSX.Element => {
 
