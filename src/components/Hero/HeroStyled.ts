@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 interface IProps {
-  image?: string;
+  $image?: string;
 }
 
 export const HeroStyled = styled.div<IProps>`
@@ -11,7 +11,7 @@ export const HeroStyled = styled.div<IProps>`
   padding-top: 232px;
   padding-bottom: 152px;
 
-  background-image: url(${(props) => props.image});
+  background-image: url(${(props) => props.$image});
   background-size: cover;
 `;
 

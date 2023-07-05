@@ -7,13 +7,14 @@ import BookingPage from './pages/BookingPage/BookingPage';
 function App() {
   return (
     <div>
-     
+      
       <Routes>
         <Route path="/home" element={<SharedLayout/>}/>
           <Route index element={<HomePage />} />
           <Route path='/booking' element={<BookingPage/>}>
         </Route>
-      </Routes>
+        </Routes>
+       
     </div>
   );
 }

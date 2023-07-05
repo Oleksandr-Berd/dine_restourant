@@ -8,7 +8,7 @@ const Hero = (): JSX.Element => {
 
 
 
-    return (<SC.HeroStyled image={heroMobile}>
+    return (<SC.HeroStyled $image={heroMobile}>
         <SC.HeroContainer>
             <SC.Title>dine</SC.Title>
             <SC.SubTitle>Exquisite dining
