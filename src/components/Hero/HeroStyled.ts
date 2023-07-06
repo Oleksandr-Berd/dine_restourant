@@ -29,6 +29,8 @@ export const Title = styled.h1`
 `;
 
 export const SubTitle = styled.h2`
+  margin-top: ${(props) => props.theme.space[9]};
+
   margin-bottom: 21px;
 
   font-size: ${(props) => props.theme.size.M};

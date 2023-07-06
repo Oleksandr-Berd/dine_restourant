@@ -5,6 +5,7 @@ import { Dna } from "react-loader-spinner";
 
 const SharedLayout = (): JSX.Element => {
     return (<SC.SharedLayoutStyled>
+
         <Suspense fallback={<Dna
             visible={true}
             height="80"
@@ -15,7 +16,7 @@ const SharedLayout = (): JSX.Element => {
         />}>
             <Outlet />
         </Suspense>
-    </SC.SharedLayoutStyled> );
+    </SC.SharedLayoutStyled>);
 }
- 
+
 export default SharedLayout;
