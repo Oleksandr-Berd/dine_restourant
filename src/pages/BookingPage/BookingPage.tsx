@@ -1,8 +1,9 @@
+import BookingHero from "components/BookingHero/BookingHero";
 import Footer from "components/Footer/Footer";
 
 const BookingPage = () => {
     return (<div>
-        <h1>This is the Booking page!</h1>
+        <BookingHero/>
         <Footer/>
         </div>);
 }
