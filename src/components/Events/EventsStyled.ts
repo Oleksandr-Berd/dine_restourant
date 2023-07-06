@@ -1,6 +1,10 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components"
 
+interface IProps{
+    status?: boolean
+}
+
 export const CommonContainer = styled.div`
   padding-top: 80px;
   padding-bottom: 124px;
@@ -20,7 +24,15 @@ align-items: center;
 margin-bottom: 27px;
 `
 
-export const ButtonsItem = styled.button`
+export const ItemContainer = styled.div`
+text-align: center;
+
+  &:not(:last-child) {
+    margin-bottom: ${(props) => props.theme.space[4]};
+  }
+`;
+
+export const ButtonsItem = styled.button<IProps>`
 
 text-transform: uppercase;
 
@@ -34,9 +46,7 @@ background-color: transparent;
 
 border: none;
 
-&:not(:last-child){
-    margin-bottom: ${props => props.theme.space[4]};
-}
+
 `
 
 export const ImageEvents = styled.img`

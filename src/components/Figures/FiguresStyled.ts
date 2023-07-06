@@ -36,5 +36,8 @@ export const EventsLine = styled.div`
   width: 48px;
   height: 1px;
 
+  margin-left: auto;
+  margin-right: auto;
+
   background-color: ${(props) => props.theme.color.accent};
 `;
