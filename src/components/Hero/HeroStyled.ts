@@ -45,17 +45,20 @@ export const Text = styled.p`
 `;
 
 export const LinkButton = styled(NavLink)`
-padding-top: 25px;
-padding-bottom: 23px;
-padding-left: 54px;
-padding-right: 55px;
 
-text-decoration: none;
-text-transform: uppercase;
+  padding-top: 25px;
+  padding-bottom: 23px;
+  padding-left: 54px;
+  padding-right: 55px;
 
-font-size: 17px;
-font-weight: ${props => props.theme.weight.normal};
-color: ${props => props.theme.color.textSecondary};
+  text-decoration: none;
+  text-transform: uppercase;
 
-border: 1px solid ${props => props.theme.color.backgroundSecondary};
-`
+  font-family: ${(props) => props.theme.fontFamily.text};
+  font-size: 17px;
+  font-weight: ${(props) => props.theme.weight.normal};
+  color: ${(props) => props.theme.color.textSecondary};
+  line-height: 0.94;
+
+  border: 1px solid ${(props) => props.theme.color.backgroundSecondary};
+`;

@@ -4,6 +4,7 @@ import Hero from "components/Hero/Hero";
 import EnjoyablePlace from 'components/EnjoyablePlace/EnjoyablePlace';
 import LocalFood from 'components/EnjoyablePlace/LocalFood';
 import DeviMenu from 'components/Menu/DeviMenu';
+import Events from 'components/Events/Events';
 
 const HomePage = (): JSX.Element => {
 
@@ -11,7 +12,8 @@ const HomePage = (): JSX.Element => {
         <Hero />
         <EnjoyablePlace />
         <LocalFood />
-        <DeviMenu/>
+        <DeviMenu />
+        <Events/>
     </div>);
 }
 

@@ -31,3 +31,10 @@ export const Line = styled.div`
 
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 `;
+
+export const EventsLine = styled.div`
+  width: 48px;
+  height: 1px;
+
+  background-color: ${(props) => props.theme.color.accent};
+`;
