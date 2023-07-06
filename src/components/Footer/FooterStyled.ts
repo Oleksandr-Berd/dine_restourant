@@ -1,6 +1,4 @@
 import styled from "styled-components"
-import { ReactComponent as LogoSvg } from "../../assets/images/logo.svg";
-
 
 export const CommonContainer = styled.footer`
   padding-top: 80px;
