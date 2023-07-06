@@ -5,6 +5,7 @@ import EnjoyablePlace from 'components/EnjoyablePlace/EnjoyablePlace';
 import LocalFood from 'components/EnjoyablePlace/LocalFood';
 import DeviMenu from 'components/Menu/DeviMenu';
 import Events from 'components/Events/Events';
+import Ready from 'components/Ready/Ready';
 
 const HomePage = (): JSX.Element => {
 
@@ -13,7 +14,8 @@ const HomePage = (): JSX.Element => {
         <EnjoyablePlace />
         <LocalFood />
         <DeviMenu />
-        <Events/>
+        <Events />
+        <Ready/>
     </div>);
 }
 
