@@ -1,6 +1,12 @@
 import { Dropdown } from "react-bootstrap";
 import styled from "styled-components";
 
+interface IProps {
+    $filled?: string,
+    style?: object,
+    isError?: string,
+}   
+
 export const CommonContainer = styled.div`
   padding-top: 34px;
   padding-bottom: 34px;
@@ -20,19 +26,50 @@ export const StyledForm = styled.form`
   text-align: left;
 `;
 
-export const NameEmailInput = styled.input`
+export const InputContainer = styled.div`
+  margin-bottom: ${props => props.theme.space[7]};
+
+`;
+
+export const ErrorStyled = styled.span<IProps>`
+display: inline-block;
+
+margin-top: ${props => props.theme.space[2]};
+
+
+color: ${props => props.theme.color.error}
+`
+
+export const NameEmailInput = styled.input<IProps>`
   min-width: 100%;
 
   padding-bottom: 15px;
   padding-left: ${(props) => props.theme.space[4]};
-  margin-bottom: 34px;
 
   font-size: ${(props) => props.theme.size.XN};
   font-family: ${(props) => props.theme.fontFamily.text};
   line-height: 1.4;
+  color: ${(props) =>
+    props.isError === "true"
+      ? props.theme.color.error
+      : props.theme.color.text};
 
   border: none;
-  border-bottom: 1px solid ${(props) => props.theme.color.border};
+  border-bottom: 1px solid
+    ${(props) =>
+      props.$filled === "true" && props.isError === "false"
+        ? props.theme.color.backgroundDark
+        : props.$filled === "false" && props.isError === "false"
+        ? props.theme.color.border
+        : props.theme.color.error};
+
+&::placeholder{
+    color:${props => props.isError === "true" ? props.theme.color.error : ""}
+}
+
+  &&&:active {
+    border: none;
+  }
 `;
 
 export const TitleContainer = styled.div`
@@ -56,9 +93,8 @@ export const DateContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  margin-bottom: 34px;
 `;
-export const DateInput = styled.input`
+export const DateInput = styled.input<IProps>`
   min-width: 25%;
   padding-left: 15px;
   padding-bottom: 15px;
@@ -68,9 +104,24 @@ export const DateInput = styled.input`
   font-size: ${(props) => props.theme.size.XN};
   font-family: ${(props) => props.theme.fontFamily.text};
   line-height: 1.4;
+  color: ${(props) =>
+    props.isError === "true"
+      ? props.theme.color.error
+      : props.theme.color.text};
 
   border: none;
-  border-bottom: 1px solid ${(props) => props.theme.color.border};
+  border-bottom: 1px solid
+    ${(props) =>
+      props.$filled === "true" && props.isError === "false"
+        ? props.theme.color.backgroundDark
+        : props.$filled === "false" && props.isError === "false"
+        ? props.theme.color.border
+        : props.theme.color.error};
+
+  &::placeholder {
+    color: ${(props) =>
+      props.isError === "true" ? props.theme.color.error : ""};
+  }
 
   &:not(:last-child) {
     margin-right: 14px;
@@ -109,6 +160,8 @@ export const QuantityContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
+  margin-top: ${(props) => props.theme.space[7]};
 
   padding-left: 17px;
   padding-right: 17px;

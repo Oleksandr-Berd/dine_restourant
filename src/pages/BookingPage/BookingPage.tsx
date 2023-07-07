@@ -3,13 +3,14 @@ import Footer from "components/Footer/Footer";
 import BookingForm from "components/Form/Form";
 import { ToastContainer, toast } from 'react-toastify';
 import { normilizedMonth, normilizedTime } from "utils/normilizedMonth";
+
+
 const BookingPage = () => {
 
-    const submitBook = (...args: any): void => {
+    const submitBook = (...args:any): void => {
 
         const newBooking = args[0]
 
-        console.log(newBooking);
         const { name, date, time, persons, dayPart } = newBooking
         const month = normilizedMonth(date.month)
         const hour = normilizedTime(time.hour)
