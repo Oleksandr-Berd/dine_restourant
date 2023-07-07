@@ -10,12 +10,16 @@ interface IValues {
     email: string,
     hour: number,
     minutes: number,
-    day: number,
-    month: number,
-    year: number,
+    day: number | null,
+    month: number | null,
+    year: number | null,
 }
 
-const BookingForm = () => {
+interface IProps {
+    submit: (object: object) => void;
+}
+
+const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
     const [state, dispatch] = useReducer(reducer, { quantity: 1 });
 
     const incrementQuantity = (): void => dispatch({ type: CounterActionType.INCREMENT });
@@ -25,15 +29,15 @@ const BookingForm = () => {
         initialValues: {
             name: '',
             email: '',
-            day: 0,
-            month: 0,
-            year: 0,
+            day: null,
+            month: null,
+            year: null,
             hour: 9,
-            minutes: 0
+            minutes: 0,
 
         },
         onSubmit: (values) => {
-            
+
             console.log(values);
         },
     });
@@ -42,19 +46,32 @@ const BookingForm = () => {
 
 
     const handleValuesChange = (evt: ChangeEvent<HTMLInputElement>): void => {
+
+        
         setTimeout(() => { formik.handleChange(evt) }, 300)
 
     }
 
-    const handleSubmit = (evt: ChangeEvent<HTMLInputElement>):void => {
-    evt.preventDefault()
-}
+    const handleSubmit = (evt: ChangeEvent<HTMLFormElement>): void => {
+        evt.preventDefault()
+
+        
+        const values = Object.values(formik.values)
+
+        const validationValues = values.slice(0, values.length -1)
+        
 
 
+        validationValues.every(el => el) ? submit({ name: name, email: email, date: { day: day, month: month, year: year }, time: { hour: hour, minute: minutes }, persons: state.quantity }) : alert("fck")
+        
+    }
+
+
+    
 
     return (
         <SC.CommonContainer>
-            <SC.StyledForm>
+            <SC.StyledForm onSubmit={handleSubmit}>
                 <SC.NameEmailInput type="text" placeholder="Name" name="name" onChange={handleValuesChange} />
                 <SC.NameEmailInput type="email" placeholder="Email" name="email" onChange={handleValuesChange} />
 
@@ -85,12 +102,12 @@ const BookingForm = () => {
                 </SC.DateContainer>
 
                 <SC.QuantityContainer>
-                    <SC.QuantityButton onClick={decrementQuantity}>-</SC.QuantityButton>
+                    <SC.QuantityButton onClick={decrementQuantity} type='button'>-</SC.QuantityButton>
                     <span>{state.quantity} people</span>
-                    <SC.QuantityButton onClick={incrementQuantity}>+</SC.QuantityButton>
+                    <SC.QuantityButton onClick={incrementQuantity} type="button">+</SC.QuantityButton>
                 </SC.QuantityContainer>
 
-                <SC.SubmitButton type="submit">make reservation</SC.SubmitButton>
+                <SC.SubmitButton type='submit' >make reservation</SC.SubmitButton>
             </SC.StyledForm>
         </SC.CommonContainer>
     );
