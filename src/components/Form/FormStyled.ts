@@ -14,11 +14,11 @@ export const CommonContainer = styled.div`
 `;
 
 export const StyledForm = styled.form`
-margin-left: auto;
-margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 
-text-align: left;
-`
+  text-align: left;
+`;
 
 export const NameEmailInput = styled.input`
   min-width: 100%;
@@ -59,11 +59,11 @@ export const DateContainer = styled.div`
   margin-bottom: 34px;
 `;
 export const DateInput = styled.input`
-min-width: 25%;
-padding-left: 15px;
-padding-bottom: 15px;
+  min-width: 25%;
+  padding-left: 15px;
+  padding-bottom: 15px;
 
-text-transform: uppercase;
+  text-transform: uppercase;
 
   font-size: ${(props) => props.theme.size.XN};
   font-family: ${(props) => props.theme.fontFamily.text};
@@ -72,7 +72,7 @@ text-transform: uppercase;
   border: none;
   border-bottom: 1px solid ${(props) => props.theme.color.border};
 
-  &:not(:last-child){
+  &:not(:last-child) {
     margin-right: 14px;
   }
 `;
@@ -91,6 +91,8 @@ export const ToggleButton = styled(Dropdown.Toggle)`
   border-bottom: 1px solid ${(props) => props.theme.color.border};
 
   &:after {
+    margin-left: 6px;
+
     color: ${(props) => props.theme.color.accent};
   }
 
@@ -101,7 +103,6 @@ export const ToggleButton = styled(Dropdown.Toggle)`
     color: ${(props) => props.theme.color.text};
   }
 `;
- 
 
 export const QuantityContainer = styled.div`
   display: flex;
@@ -122,29 +123,27 @@ export const QuantityContainer = styled.div`
 `;
 
 export const QuantityButton = styled.button`
-background-color: transparent;
-border: none;
-color: ${props => props.theme.color.accent};
-font-size: ${props => props.theme.size.XN};
-font-weight: ${props => props.theme.weight.bold};
-line-height: 1.20;
-letter-spacing: -0.25px;
-`
+  background-color: transparent;
+  border: none;
+  color: ${(props) => props.theme.color.accent};
+  font-size: ${(props) => props.theme.size.XN};
+  font-weight: ${(props) => props.theme.weight.bold};
+  line-height: 1.2;
+  letter-spacing: -0.25px;
+`;
 
 export const SubmitButton = styled.button`
-min-width: 100%;
+  min-width: 100%;
 
-padding-top: 19px;
-padding-bottom: 17px;
+  padding-top: 19px;
+  padding-bottom: 17px;
 
-text-transform: uppercase;
+  text-transform: uppercase;
 
-background-color: ${props => props.theme.color.backgroundDark};
-color: ${props => props.theme.color.textSecondary};
-font-family: ${props => props.theme.fontFamily.text};
-font-weight: ${props => props.theme.weight.bold};
-line-height: 1.65;
-letter-spacing: 2.5px;
-`
-
-
+  background-color: ${(props) => props.theme.color.backgroundDark};
+  color: ${(props) => props.theme.color.textSecondary};
+  font-family: ${(props) => props.theme.fontFamily.text};
+  font-weight: ${(props) => props.theme.weight.bold};
+  line-height: 1.65;
+  letter-spacing: 2.5px;
+`;
