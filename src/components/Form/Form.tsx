@@ -4,6 +4,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { useFormik } from 'formik';
 import { useReducer, ChangeEvent } from 'react';
 import { reducer, CounterActionType } from '../../utils/reducer';
+import { toast } from 'react-toastify';
 
 interface IValues {
     name: string,
@@ -13,6 +14,7 @@ interface IValues {
     day: number | null,
     month: number | null,
     year: number | null,
+    dayPart: string,
 }
 
 interface IProps {
@@ -33,7 +35,9 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
             month: null,
             year: null,
             hour: 9,
+            dayPart: "AM",
             minutes: 0,
+            
 
         },
         onSubmit: (values) => {
@@ -42,7 +46,7 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
         },
     });
 
-    const { name, email, day, month, year, hour, minutes } = formik.values;
+    const { name, email, day, month, year, hour, minutes, dayPart } = formik.values;
 
 
     const handleValuesChange = (evt: ChangeEvent<HTMLInputElement>): void => {
@@ -52,6 +56,13 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
 
     }
 
+    const handleTimeChange = (value: string | null): void => {
+        if (value !== null) {
+            formik.setFieldValue('dayPart', value);
+        }
+    };
+
+
     const handleSubmit = (evt: ChangeEvent<HTMLFormElement>): void => {
         evt.preventDefault()
 
@@ -59,10 +70,19 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
         const values = Object.values(formik.values)
 
         const validationValues = values.slice(0, values.length -1)
-        
+       
 
 
-        validationValues.every(el => el) ? submit({ name: name, email: email, date: { day: day, month: month, year: year }, time: { hour: hour, minute: minutes }, persons: state.quantity }) : alert("fck")
+        validationValues.every(el => el) ? submit({ name: name, email: email, date: { day: day, month: month, year: year }, time: { hour: hour, minute: minutes }, persons: state.quantity, dayPart: dayPart }) : toast.error('You need to fill all fields!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
         
     }
 
@@ -90,13 +110,13 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
                 <SC.DateContainer>
                     <SC.DateInput type="number" min={0} max={12} placeholder="09" name="hour" onChange={handleValuesChange} />
                     <SC.DateInput type="number" min={0} max={59} placeholder="00" name="minutes" onChange={handleValuesChange} />
-                    <Dropdown>
+                    <Dropdown onSelect={handleTimeChange}>
                         <SC.ToggleButton variant="success" id="dropdown-basic">
-                            AM
+                            {dayPart}
                         </SC.ToggleButton>
                         <Dropdown.Menu>
-                            <Dropdown.Item>AM</Dropdown.Item>
-                            <Dropdown.Item>PM</Dropdown.Item>
+                            <Dropdown.Item eventKey="AM">AM</Dropdown.Item>
+                            <Dropdown.Item eventKey="PM">PM</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </SC.DateContainer>
