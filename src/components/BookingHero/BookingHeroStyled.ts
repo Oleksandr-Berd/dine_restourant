@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface IProps {
-  image?: string;
+  $image?: string;
 }
 
 export const CommonContainer = styled.div<IProps>`
@@ -12,7 +12,7 @@ export const CommonContainer = styled.div<IProps>`
 
   text-align: center;
 
-  background-image: url(${(props) => props.image});
+  background-image: url(${(props) => props.$image});
   background-size: cover;
 
   color: ${(props) => props.theme.color.textSecondary};
