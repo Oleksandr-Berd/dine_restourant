@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import { useReducer, ChangeEvent } from 'react';
 import { reducer, CounterActionType } from '../../utils/reducer';
 import { toast } from 'react-toastify';
+import { useMediaQuery } from 'usehooks-ts';
 
 interface IValues {
     name: string,
@@ -40,6 +41,9 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
     const incrementQuantity = (): void => dispatch({ type: CounterActionType.INCREMENT });
     const decrementQuantity = (): void => dispatch({ type: CounterActionType.DECREMENT });
 
+    const isTablet = useMediaQuery('(min-width:768px)');
+
+
     const formik = useFormik<IValues>({
         initialValues: {
             name: '',
@@ -54,9 +58,10 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
 
         },
         validationSchema: InputDataSchema,
-        onSubmit: (values) => {
+        onSubmit: (values, { resetForm }) => {
 
             console.log(values);
+            resetForm()
         },
     });
 
@@ -80,14 +85,26 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
     const handleSubmit = (evt: ChangeEvent<HTMLFormElement>): void => {
         evt.preventDefault()
 
-
         const values = Object.values(formik.values)
 
         const validationValues = values.slice(0, values.length - 1)
 
+        const initialValues = {
+            name: '',
+            email: '',
+            day: null,
+            month: null,
+            year: null,
+            hour: null,
+            dayPart: "AM",
+            minutes: "",
 
 
-        validationValues.every(el => el) ? submit({ name: name, email: email, date: { day: day, month: month, year: year }, time: { hour: hour, minute: minutes }, persons: state.quantity, dayPart: dayPart }) : toast.error('You need to fill all fields!', {
+        }
+
+        validationValues.every(el => el) ?
+            submit({ name: name, email: email, date: { day: day, month: month, year: year }, time: { hour: hour, minute: minutes }, persons: state.quantity, dayPart: dayPart }) 
+            : toast.error('You need to fill all fields!', {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -104,52 +121,90 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
 
 
     return (
-        <SC.CommonContainer>
+        <SC.CommonContainer id='reserve'>
             <SC.StyledForm onSubmit={handleSubmit}>
                 <SC.InputContainer>
-                    <SC.NameEmailInput type="text" placeholder="Name" name="name" onChange={handleValuesChange} $filled={name.length > 0 ? "true" : "false"} isError={formik.errors.name ? "true" : "false" } />
+                    <SC.NameEmailInput type="text" placeholder="Name" name="name" onChange={handleValuesChange} $filled={name.length > 0 ? "true" : "false"} $isError={formik.errors.name ? "true" : "false"} />
                     {formik.errors.name ? <SC.ErrorStyled>{formik.errors.name}</SC.ErrorStyled > : <SC.ErrorStyled style={{ color: "transparent" }}>error</SC.ErrorStyled>}
                 </SC.InputContainer>
                 <SC.InputContainer>
-                    <SC.NameEmailInput type="email" placeholder="Email" name="email" onChange={handleValuesChange} $filled={email.length > 0 ? "true" : "false"} isError={formik.errors.email ? "true" : "false"} />
+                    <SC.NameEmailInput type="email" placeholder="Email" name="email" onChange={handleValuesChange} $filled={email.length > 0 ? "true" : "false"} $isError={formik.errors.email ? "true" : "false"} />
                     {formik.errors.email ? <SC.ErrorStyled>{formik.errors.email}</SC.ErrorStyled> : <SC.ErrorStyled style={{ color: "transparent" }}>error</SC.ErrorStyled>}
                 </SC.InputContainer>
-                <SC.TitleContainer>
-                    <SC.Title>Pick a date</SC.Title>
-                </SC.TitleContainer>
-                <SC.DateContainer>
-                    <SC.DateInput type="number" min={1} max={12} placeholder="mm" name="month" onChange={handleValuesChange} $filled={month ? "true" : "false"} isError={formik.errors.month ? "true" : "false"} />
+                {isTablet ?
 
-                    <SC.DateInput type="number" min={1} max={31} placeholder="DD" name="day" onChange={handleValuesChange} $filled={day ? "true" : "false"} isError={formik.errors.day ? "true" : "false"} />
+                    <SC.DateContainer>
+                        <SC.TitleContainer>
+                            <SC.Title>Pick a date</SC.Title>
+                        </SC.TitleContainer>
+                        <SC.DateInput type="number" min={1} max={12} placeholder="mm" name="month" onChange={handleValuesChange} $filled={month ? "true" : "false"} $isError={formik.errors.month ? "true" : "false"} />
 
-                    <SC.DateInput type="number" min={2023} max={2025} placeholder="YYYY" name="year" onChange={handleValuesChange} $filled={year ? "true" : "false"} isError={formik.errors.year ? "true" : "false"} />
+                        <SC.DateInput type="number" min={1} max={31} placeholder="DD" name="day" onChange={handleValuesChange} $filled={day ? "true" : "false"} $isError={formik.errors.day ? "true" : "false"} />
+
+                        <SC.DateInput type="number" min={2023} max={2025} placeholder="YYYY" name="year" onChange={handleValuesChange} $filled={year ? "true" : "false"} $isError={formik.errors.year ? "true" : "false"} />
 
 
-                </SC.DateContainer>
-                {formik.errors.month ? <SC.ErrorStyled>{formik.errors.month}</SC.ErrorStyled > :    
+                    </SC.DateContainer>
+                    : <>
+                        <SC.TitleContainer>
+                            <SC.Title>Pick a date</SC.Title>
+                        </SC.TitleContainer>
+                        <SC.DateContainer>
+                            <SC.DateInput type="number" min={1} max={12} placeholder="mm" name="month" onChange={handleValuesChange} $filled={month ? "true" : "false"} $isError={formik.errors.month ? "true" : "false"} />
+
+                            <SC.DateInput type="number" min={1} max={31} placeholder="DD" name="day" onChange={handleValuesChange} $filled={day ? "true" : "false"} $isError={formik.errors.day ? "true" : "false"} />
+
+                            <SC.DateInput type="number" min={2023} max={2025} placeholder="YYYY" name="year" onChange={handleValuesChange} $filled={year ? "true" : "false"} $isError={formik.errors.year ? "true" : "false"} />
+
+
+                        </SC.DateContainer>
+                    </>
+                }
+
+                {formik.errors.month ? <SC.ErrorStyled>{formik.errors.month}</SC.ErrorStyled > :
                     formik.errors.year ? <SC.ErrorStyled>{formik.errors.year} </SC.ErrorStyled> :
                         formik.errors.day ? <SC.ErrorStyled>{formik.errors.day}</SC.ErrorStyled >
                             :
                             <SC.ErrorStyled style={{ color: "transparent" }}>error</SC.ErrorStyled>}
-                <SC.TitleContainer style={{marginTop:"28px"}}>
-                    <SC.Title>Pick a time</SC.Title>
-                </SC.TitleContainer>
-                <SC.DateContainer>
-                    <SC.DateInput type="number" min={0} max={12} placeholder="09" name="hour" onChange={handleValuesChange} $filled={hour ? "true" : "false"} isError={formik.errors.hour ? "true" : "false"} />
-                    <SC.DateInput type="number" min={0} max={59} placeholder="00" name="minutes" onChange={handleValuesChange} $filled={minutes || minutes === 0 ? "true" : "false"} isError={formik.errors.minutes ? "true" : "false"} />
-                    <Dropdown onSelect={handleTimeChange}>
-                        <SC.ToggleButton variant="success" id="dropdown-basic">
-                            {dayPart}
-                        </SC.ToggleButton>
-                        <Dropdown.Menu>
-                            <Dropdown.Item eventKey="AM">AM</Dropdown.Item>
-                            <Dropdown.Item eventKey="PM">PM</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </SC.DateContainer>
+
+                {isTablet ?
+                    <SC.DateContainer>
+                        <SC.TitleContainer style={{ marginTop: "28px" }}>
+                            <SC.Title>Pick a time</SC.Title>
+                        </SC.TitleContainer>
+                        <SC.DateInput type="number" min={0} max={12} placeholder="09" name="hour" onChange={handleValuesChange} $filled={hour ? "true" : "false"} $isError={formik.errors.hour ? "true" : "false"} />
+                        <SC.DateInput type="number" min={0} max={59} placeholder="00" name="minutes" onChange={handleValuesChange} $filled={minutes || minutes === 0 ? "true" : "false"} $isError={formik.errors.minutes ? "true" : "false"} />
+                        <Dropdown onSelect={handleTimeChange}>
+                            <SC.ToggleButton variant="success" id="dropdown-basic">
+                                {dayPart}
+                            </SC.ToggleButton>
+                            <Dropdown.Menu>
+                                <Dropdown.Item eventKey="AM">AM</Dropdown.Item>
+                                <Dropdown.Item eventKey="PM">PM</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    </SC.DateContainer> : <>
+                        <SC.TitleContainer style={{ marginTop: "28px" }}>
+                            <SC.Title>Pick a time</SC.Title>
+                        </SC.TitleContainer>
+                        <SC.DateContainer>
+                            <SC.DateInput type="number" min={0} max={12} placeholder="09" name="hour" onChange={handleValuesChange} $filled={hour ? "true" : "false"} $isError={formik.errors.hour ? "true" : "false"} />
+                            <SC.DateInput type="number" min={0} max={59} placeholder="00" name="minutes" onChange={handleValuesChange} $filled={minutes || minutes === 0 ? "true" : "false"} $isError={formik.errors.minutes ? "true" : "false"} />
+                            <Dropdown onSelect={handleTimeChange}>
+                                <SC.ToggleButton variant="success" id="dropdown-basic">
+                                    {dayPart}
+                                </SC.ToggleButton>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item eventKey="AM">AM</Dropdown.Item>
+                                    <Dropdown.Item eventKey="PM">PM</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </SC.DateContainer>
+                    </>}
+
                 {formik.errors.hour ? <SC.ErrorStyled>{formik.errors.hour}</SC.ErrorStyled > :
                     formik.errors.minutes ? <SC.ErrorStyled>{formik.errors.minutes} </SC.ErrorStyled> :
-                            <SC.ErrorStyled style={{ color: "transparent" }}>error</SC.ErrorStyled>}
+                        <SC.ErrorStyled style={{ color: "transparent" }}>error</SC.ErrorStyled>}
                 <SC.QuantityContainer>
                     <SC.QuantityButton onClick={decrementQuantity} type='button'>-</SC.QuantityButton>
                     <span>{state.quantity} people</span>

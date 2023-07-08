@@ -4,26 +4,50 @@ import styled from "styled-components";
 interface IProps {
     $filled?: string,
     style?: object,
-    isError?: string,
+    $isError?: string,
 }   
 
 export const CommonContainer = styled.div`
-  padding-top: 34px;
-  padding-bottom: 34px;
-  padding-right: ${(props) => props.theme.space[8]};
-  padding-left: ${(props) => props.theme.space[8]};
+
+  padding-bottom: ${props => props.theme.space[9]};
+  padding-right: ${(props) => props.theme.space[6]};
+  padding-left: ${(props) => props.theme.space[6]};
 
   margin-left: auto;
   margin-right: auto;
 
   text-align: center;
+
+  @media (min-width: 768px){
+    padding-right: 114px;
+    padding-left: 114px;
+  }
 `;
 
 export const StyledForm = styled.form`
+  transform: translateY(-173px);
+  z-index: 10;
+
+  padding-top: 34px;
+  padding-right: ${(props) => props.theme.space[8]};
+  padding-left: ${(props) => props.theme.space[8]};
+  padding-bottom: ${(props) => props.theme.space[8]};
+
   margin-left: auto;
   margin-right: auto;
 
   text-align: left;
+
+  background-color: ${(props) => props.theme.color.textSecondary};
+
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+  @media (min-width: 768px) {
+    padding-top: 50px;
+    padding-bottom: ${(props) => props.theme.space[11]};
+    padding-left: ${(props) => props.theme.space[11]};
+    padding-right: ${(props) => props.theme.space[11]};
+  }
 `;
 
 export const InputContainer = styled.div`
@@ -50,21 +74,21 @@ export const NameEmailInput = styled.input<IProps>`
   font-family: ${(props) => props.theme.fontFamily.text};
   line-height: 1.4;
   color: ${(props) =>
-    props.isError === "true"
+    props.$isError === "true"
       ? props.theme.color.error
       : props.theme.color.text};
 
   border: none;
   border-bottom: 1px solid
     ${(props) =>
-      props.$filled === "true" && props.isError === "false"
+      props.$filled === "true" && props.$isError === "false"
         ? props.theme.color.backgroundDark
-        : props.$filled === "false" && props.isError === "false"
+        : props.$filled === "false" && props.$isError === "false"
         ? props.theme.color.border
         : props.theme.color.error};
 
 &::placeholder{
-    color:${props => props.isError === "true" ? props.theme.color.error : ""}
+    color:${props => props.$isError === "true" ? props.theme.color.error : ""}
 }
 
   &&&:active {
@@ -83,6 +107,10 @@ export const Title = styled.h6`
   font-family: ${(props) => props.theme.fontFamily.text};
   font-weight: ${(props) => props.theme.weight.normal};
   line-height: 1.4;
+
+  @media (min-width: 768px){
+    margin-bottom: 0;
+  }
 `;
 
 export const DateContainer = styled.div`
@@ -93,6 +121,9 @@ export const DateContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  @media (min-width: 768px){
+    min-width: auto;
+  }
 `;
 export const DateInput = styled.input<IProps>`
   min-width: 25%;
@@ -105,26 +136,34 @@ export const DateInput = styled.input<IProps>`
   font-family: ${(props) => props.theme.fontFamily.text};
   line-height: 1.4;
   color: ${(props) =>
-    props.isError === "true"
+    props.$isError === "true"
       ? props.theme.color.error
       : props.theme.color.text};
 
   border: none;
   border-bottom: 1px solid
     ${(props) =>
-      props.$filled === "true" && props.isError === "false"
+      props.$filled === "true" && props.$isError === "false"
         ? props.theme.color.backgroundDark
-        : props.$filled === "false" && props.isError === "false"
+        : props.$filled === "false" && props.$isError === "false"
         ? props.theme.color.border
         : props.theme.color.error};
 
   &::placeholder {
     color: ${(props) =>
-      props.isError === "true" ? props.theme.color.error : ""};
+      props.$isError === "true" ? props.theme.color.error : ""};
   }
 
   &:not(:last-child) {
     margin-right: 14px;
+  }
+
+  @media (min-width: 768px) {
+    min-width: 80px;
+
+    &:not(:last-child) {
+      margin-right: 0;
+    }
   }
 `;
 
