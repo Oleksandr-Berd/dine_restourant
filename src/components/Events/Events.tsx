@@ -15,7 +15,6 @@ import socialImageTablet from "../../assets/images/homepage/social-events-tablet
 
 import { EventsLine } from "components/Figures/FiguresStyled"
 import { useMediaQuery } from "usehooks-ts"
-import Square from "components/Figures/Square"
 import SquareGathering from "components/Figures/SquareGathering"
 import EventsLinesBlock from "components/Figures/EvenetsLinesBlock"
 

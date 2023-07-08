@@ -1,5 +1,4 @@
 import * as SC from "./FiguresStyled"
-import { EventsLinesBlockContainerStyled, EventsLinesBlockStyled } from './FiguresStyled';
 
 const EventsLinesBlock = (): JSX.Element => {
     return (<SC.EventsLinesBlockContainerStyled>
