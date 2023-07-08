@@ -15,17 +15,30 @@ export const CommonContainer = styled.div<IProps>`
 
   background-image: url(${(props) => props.image});
   background-size: cover;
+
+  @media (min-width: 768px) {
+    padding-top: 72px;
+    padding-bottom: 64px;
+    padding-left: 66px;
+  }
 `;
 
 export const Title = styled.h1`
-margin-bottom: ${props=> props.theme.space[5]};
+  margin-bottom: ${(props) => props.theme.space[5]};
 
-color: ${props => props.theme.color.textSecondary};
-font-size: ${props => props.theme.size.M};
-line-height: 1.25;
-letter-spacing:-0.4px;
+  color: ${(props) => props.theme.color.textSecondary};
+  font-size: ${(props) => props.theme.size.M};
+  line-height: 1.25;
+  letter-spacing: -0.4px;
 
-`
+  @media (min-width: 768px) {
+    margin-bottom: ${(props) => props.theme.space[6]};
+
+    font-size: ${(props) => props.theme.size.SL};
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+`;
 
 export const LinkButton = styled(NavLink)`
   display: inline-block;

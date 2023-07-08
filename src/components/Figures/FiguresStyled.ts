@@ -56,6 +56,23 @@ export const SquareStyled = styled.div`
   border-radius: 0 108px 0 0;
 `;
 
+export const SquareGatheringStyled = styled.div`
+  position: absolute;
+  overflow: hidden;
+
+  top: 0;
+  left: 0;
+  transform: translateX(-60%) translateY(0);
+  z-index: -1;
+
+  min-width: 895px;
+  min-height: 320px;
+
+  background: linear-gradient(to bottom right, #979797, #ffffff);
+
+  border-radius: 0 108px 0 0;
+`;
+
 export const LocalSquareStyled = styled.div`
   position: absolute;
   bottom: 0;
@@ -95,3 +112,26 @@ background: ${props => props.theme.color.accent};
     margin-bottom: ${props => props.theme.space[2]};
 }
 `
+
+export const EventsLinesBlockContainerStyled = styled.div`
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+
+  transform: translateY(55%) translateX(20%);
+
+  display: flex;
+  flex-direction: column;
+`;
+
+export const EventsLinesBlockStyled = styled.div`
+  width: 160px;
+  height: 6px;
+
+  background: ${(props) => props.theme.color.accent};
+
+  &:not(:last-child) {
+    margin-bottom: ${(props) => props.theme.space[2]};
+  }
+`;

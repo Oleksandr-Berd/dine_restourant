@@ -26,24 +26,30 @@ export const CommonContainer = styled.div`
 `;
 
 export const CommonContainerLocalFood = styled.div`
-  position: relative;
-  z-index: 10;
-  overflow-x: hidden;
-
-  max-width: 768px;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  padding-top: 118px;
-  padding-bottom: 118px;
-
-  padding-left: 97px;
-  padding-right: 98px;
+  padding-left: ${(props) => props.theme.space[6]};
+  padding-right: ${(props) => props.theme.space[6]};
+  padding-bottom: 101px;
 
   text-align: center;
 
   background-color: ${(props) => props.theme.color.backgroundSecondary};
+
+  @media (min-width: 768px) {
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+
+    max-width: 768px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-top: 118px;
+    padding-bottom: 118px;
+
+    padding-left: 97px;
+    padding-right: 98px;
+  }
 `;
 
 export const Title = styled.h1`

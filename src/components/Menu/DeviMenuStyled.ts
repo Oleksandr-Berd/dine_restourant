@@ -15,12 +15,19 @@ export const MenuContainer = styled.div`
     position: relative;
     z-index: 10;
 
-    max-width: 768px;
+    padding-top: 96px;
+    padding-left: 97px;
+    padding-right: 98px;
+    padding-bottom: 96px;
   }
 `;
 
 export const TitleContainer = styled.div`
   margin-bottom: 85px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 54pxpx;
+  }
 `;
 
 export const MainTitle = styled.h1`
@@ -29,12 +36,36 @@ export const MainTitle = styled.h1`
   font-weight: ${(props) => props.theme.weight.bold};
   font-size: ${(props) => props.theme.size.M};
   line-height: 1.25;
+
+  @media (min-width: 768px) {
+    margin-bottom: 27px;
+
+    font-size: ${(props) => props.theme.size.SL};
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+`;
+
+export const TextContainer = styled.div`
+  @media (min-width: 768px) {
+padding-top: ${props => props.theme.space[3]};
+
+    margin-left: 30px;
+  }
 `;
 
 export const Text = styled.p`
   font-weight: ${(props) => props.theme.weight.light};
   font-size: ${(props) => props.theme.size.N};
   line-height: 1.63;
+
+  @media (min-width: 768px) {
+    text-align: left;
+
+    font-size: ${(props) => props.theme.size.XN};
+    font-weight: ${(props) => props.theme.weight.normal};
+    line-height: 1.5;
+  }
 `;
 
 export const ItemContainer = styled.div`
@@ -44,6 +75,18 @@ export const ItemContainer = styled.div`
     margin-bottom: ${(props) => props.theme.space[6]};
 
     border-bottom: 1px solid ${(props) => props.theme.color.border};
+
+    @media (min-width: 768px) {
+      padding-bottom: ${(props) => props.theme.space[6]};
+
+      margin-bottom: ${(props) => props.theme.space[6]};
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
   }
 `;
 
@@ -53,13 +96,18 @@ export const SubTitle = styled.h2`
   font-weight: ${(props) => props.theme.weight.bold};
   font-size: ${(props) => props.theme.size.XN};
   line-height: 1.2;
+
+  @media (min-width: 768px){
+    text-align: left;
+  }
 `;
 
 export const ImageMenu = styled.img`
-  width: 327px;
-  height: 245px;
-
   margin-left: auto;
   margin-right: auto;
   margin-bottom: ${(props) => props.theme.space[9]};
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
 `;
