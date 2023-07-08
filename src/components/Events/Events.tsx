@@ -1,15 +1,29 @@
+import { useState } from "react"
+
 import * as SC from "./EventsStyled"
 
 import familyImage from "../../assets/images/homepage/family-gathering-mobile.jpg"
 import specialImage from "../../assets/images/homepage/special-events-mobile.jpg"
 import socialImage from "../../assets/images/homepage/social-events-mobile.jpg"
-import { useState } from "react"
+
+import familyImageTablet from "../../assets/images/homepage/family-gathering-tablet.jpg"
+import specialImageTablet from "../../assets/images/homepage/special-events-tablet.jpg"
+import socialImageTablet from "../../assets/images/homepage/social-events-tablet.jpg"
+
+
+
+
 import { EventsLine } from "components/Figures/FiguresStyled"
+import { useMediaQuery } from "usehooks-ts"
+import Square from "components/Figures/Square"
+import SquareGathering from "components/Figures/SquareGathering"
+import EventsLinesBlock from "components/Figures/EvenetsLinesBlock"
 
 
 const Events = (): JSX.Element => {
     const [active, setActive] = useState<string>("family gathering")
 
+    const isTablet = useMediaQuery("(min-width:768px)")
 
     const handleActive = (evt: React.MouseEvent<HTMLButtonElement>): void => {
         const target = evt.target as HTMLButtonElement;
@@ -45,7 +59,13 @@ const Events = (): JSX.Element => {
 
 
     return (<SC.CommonContainer>
-        <SC.ImageEvents src={active === "family gathering" ? familyImage : active === "special events" ? specialImage : socialImage} alt="family" />
+        {isTablet ? <SquareGathering /> : null}
+        {isTablet ? <EventsLinesBlock/> : null}
+        {isTablet ?
+            <SC.ImageEvents src={active === "family gathering" ? familyImageTablet : active === "special events" ? specialImageTablet : socialImageTablet} alt="family" />
+        :
+            <SC.ImageEvents src={active === "family gathering" ? familyImage : active === "special events" ? specialImage : socialImage} alt="family" />
+        }
         <SC.ButtonsContainer>
             <SC.ItemContainer>
                 <SC.ButtonsItem onClick={handleActive}>family gathering</SC.ButtonsItem>

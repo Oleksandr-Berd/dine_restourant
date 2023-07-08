@@ -13,20 +13,23 @@ export const HeroStyled = styled.div<IProps>`
 
   background-image: url(${(props) => props.$image});
   background-size: cover;
+
+  @media (min-width: 768px) {
+    padding-top: 374px;
+    padding-bottom: 216px;
+    padding-left: ${(props) => props.theme.space[10]};
+    padding-right: ${(props) => props.theme.space[10]};
+  }
 `;
 
 export const HeroContainer = styled.div`
   text-align: center;
 
   color: ${(props) => props.theme.color.textSecondary};
+
+ 
 `;
 
-export const Title = styled.h1`
-  margin-bottom: ${(props) => props.theme.space[9]};
-
-  font-size: ${(props) => props.theme.size.M};
-  font-weight: ${(props) => props.theme.weight.bold};
-`;
 
 export const SubTitle = styled.h2`
   margin-top: ${(props) => props.theme.space[9]};
@@ -36,6 +39,20 @@ export const SubTitle = styled.h2`
   font-size: ${(props) => props.theme.size.M};
   font-weight: ${(props) => props.theme.weight.light};
   line-height: 1.5;
+
+  @media (min-width: 768px) {
+
+width: 300px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 38px;
+    margin-bottom: ${(props) => props.theme.space[5]};
+
+    font-size: ${(props) => props.theme.size.SL};
+    line-height: 1.33;
+    letter-spacing: -0.6px;
+  }
 `;
 
 export const Text = styled.p`
@@ -44,6 +61,11 @@ export const Text = styled.p`
   font-size: ${(props) => props.theme.size.N};
   font-weight: ${(props) => props.theme.weight.light};
   line-height: 1.3;
+
+  @media (min-width: 768px) {
+    font-size: ${(props) => props.theme.size.XN};
+    line-height: 1.5;
+  }
 `;
 
 export const LinkButton = styled(NavLink)`
@@ -63,4 +85,6 @@ export const LinkButton = styled(NavLink)`
   line-height: 0.94;
 
   border: 1px solid ${(props) => props.theme.color.backgroundSecondary};
+
+  
 `;
