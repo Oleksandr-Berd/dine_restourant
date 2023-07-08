@@ -89,18 +89,7 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
 
         const validationValues = values.slice(0, values.length - 1)
 
-        const initialValues = {
-            name: '',
-            email: '',
-            day: null,
-            month: null,
-            year: null,
-            hour: null,
-            dayPart: "AM",
-            minutes: "",
-
-
-        }
+    
 
         validationValues.every(el => el) ?
             submit({ name: name, email: email, date: { day: day, month: month, year: year }, time: { hour: hour, minute: minutes }, persons: state.quantity, dayPart: dayPart }) 

@@ -11,7 +11,7 @@ margin: 0;
     margin: 0;
   }
 
-  span, p, a {
+  span, p, a, address {
     margin: 0;
   }
 
