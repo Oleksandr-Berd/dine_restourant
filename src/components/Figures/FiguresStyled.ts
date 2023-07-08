@@ -1,6 +1,4 @@
-import styled from "styled-components"
-
-
+import styled from "styled-components";
 
 export const FiguresContainer = styled.div`
   display: flex;
@@ -41,3 +39,59 @@ export const EventsLine = styled.div`
 
   background-color: ${(props) => props.theme.color.accent};
 `;
+
+export const SquareStyled = styled.div`
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%) translateY(20%);
+  z-index: -1;
+
+  min-width: 895px;
+  min-height: 320px;
+
+  background: linear-gradient(to bottom right, #979797, #ffffff);
+
+  border-radius: 0 108px 0 0;
+`;
+
+export const LocalSquareStyled = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateX(50%) translateY(10%);
+  z-index: -1;
+
+  width: 895px;
+  min-height: 320px;
+
+  background: linear-gradient(to top left, #979797, #ffffff);
+
+  border-radius: 108px 0 0 0;
+`;
+
+//LocalLines
+
+export const LocalLinesContainer = styled.div`
+position: absolute;
+z-index: 1;
+top: 0;
+right: 0;
+
+transform: translateY(450%) translateX(-20%);
+
+display: flex;
+flex-direction:column
+`
+
+export const LocalLine = styled.div`
+width: 160px;
+height: 6px;
+
+background: ${props => props.theme.color.accent};
+
+&:not(:last-child){
+    margin-bottom: ${props => props.theme.space[2]};
+}
+`

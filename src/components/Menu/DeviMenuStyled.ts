@@ -10,6 +10,13 @@ export const MenuContainer = styled.div`
 
   background-color: ${(props) => props.theme.color.backgroundDark};
   color: ${(props) => props.theme.color.textSecondary};
+
+  @media (min-width: 768px) {
+    position: relative;
+    z-index: 10;
+
+    max-width: 768px;
+  }
 `;
 
 export const TitleContainer = styled.div`

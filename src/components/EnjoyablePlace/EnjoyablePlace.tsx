@@ -1,12 +1,21 @@
+import { useMediaQuery } from "usehooks-ts"
+
 import * as SC from "./EnjoyablePlaceStyled"
 
-import enjoyableImage from "../../assets/images/homepage/enjoyable-place-mobile@2x.jpg"
+import enjoyableImageMobile from "../../assets/images/homepage/enjoyable-place-mobile.jpg"
+import enjoyableImageTablet from "../../assets/images/homepage/enjoyable-place-tablet.jpg"
 import Figures from "components/Figures/Figures"
+import { SquareStyled } from "components/Figures/FiguresStyled"
 
 const EnjoyablePlace = () => {
 
+    const isTablet = useMediaQuery("(min-width:768px)")
+
     return (<SC.CommonContainer>
-        <SC.Image src={enjoyableImage} alt="enjoyableImage"  />
+        <SC.Image src={isTablet ? enjoyableImageTablet : enjoyableImageMobile} alt="enjoyableImage" />
+        {isTablet ?
+        <SquareStyled/>
+        : null}
         <Figures />
         <SC.Title>Enjoyable place
             for all the family</SC.Title>
