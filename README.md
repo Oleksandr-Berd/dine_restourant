@@ -1,46 +1,31 @@
-# Getting Started with Create React App
+Sure! Here's a sample README.md file for your restaurant website project:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Restaurant Website
+This is a restaurant website project built with React, TypeScript, and Styled Components. The website consists of two pages: the Homepage and the Booking page. It provides a responsive layout for optimal viewing on different screen sizes.
 
-## Available Scripts
+Design
+The project includes mobile, tablet, and desktop designs for the Homepage and Booking page. The design system provides colors, fonts, and other styling elements to maintain consistency throughout the website.
 
-In the project directory, you can run:
+Features
+Responsive layout: The website adapts to different screen sizes, providing the optimal layout for each device.
+Interactive elements: All interactive elements have hover states to enhance the user experience.
+Tabbed content: The user can click on tabs to view the content for Family Gatherings, Special Events, and Social Events sections.
+Form validation: The booking form includes validation to display error messages if required fields are empty or if the email address is not formatted correctly.
+Technologies Used
+React: JavaScript library for building user interfaces.
+TypeScript: Typed superset of JavaScript for enhanced development.
+Styled Components: Library for styling React components with CSS.
+React Toastify: Library for displaying toast notifications.
+Usage
+Clone the repository: git clone https://github.com/your-username/restaurant-website.git
+Navigate to the project directory: cd restaurant-website
+Install dependencies: npm install
+Start the development server: npm start
+Open the website in your browser: http://localhost:3000
+Credits
+The restaurant website project is created by [Your Name]. It is based on a design challenge provided by [Company/Organization Name] for skill practice purposes.
 
-### `yarn start`
+License
+This project is licensed under the MIT License.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Feel free to modify and customize the project according to your needs.
