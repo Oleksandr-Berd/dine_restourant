@@ -10,6 +10,7 @@ import * as SC from './FormStyled';
 import * as Figure from "../Figures/FiguresStyled"
 import { reducer, CounterActionType } from '../../utils/reducer';
 import BookingLines from 'components/Figures/BookingLines';
+import { IBooking } from 'pages/BookingPage/BookingPage';
 
 
 interface IValues {
@@ -24,7 +25,7 @@ interface IValues {
 }
 
 interface IProps {
-    submit: (object: object) => void;
+    submit: (object:IBooking)=>void;
 }
 
 const InputDataSchema = Yup.object().shape({
