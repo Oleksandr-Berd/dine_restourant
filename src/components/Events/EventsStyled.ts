@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 interface IProps {
-  status?: boolean;
+  status?: string;
   image?: string;
 }
 
@@ -20,6 +20,17 @@ export const CommonContainer = styled.div<IProps>`
     position: relative;
     z-index: 10;
   }
+
+  @media (min-width: 1440px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding-top: 160px;
+    padding-bottom: 160px;
+    padding-left: 165px;
+    padding-right: 165px;
+  }
 `;
 
 export const ButtonsContainer = styled.div`
@@ -36,6 +47,11 @@ export const ButtonsContainer = styled.div`
 
     margin-bottom: 47px;
   }
+
+  @media (min-width: 1440px){
+    flex-direction: column;
+    margin: 0;
+  }
 `;
 
 export const ItemContainer = styled.div`
@@ -47,6 +63,16 @@ export const ItemContainer = styled.div`
     @media (min-width: 768px) {
       margin-bottom: 0;
     }
+
+    @media (min-width: 1440px) {
+      margin-bottom: ${(props) => props.theme.space[3]};
+    }
+  }
+
+  @media (min-width: 1440px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 `;
 
@@ -62,6 +88,19 @@ export const ButtonsItem = styled.button<IProps>`
   background-color: transparent;
 
   border: none;
+
+  transition: color 0.2s ease-in-out;
+
+  @media (min-width: 1440px) {
+    color: ${(props) =>
+      props.status !== "true" ? "#8E8E8E" : props.theme.color.backgroundDark};
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    color: ${(props) => props.theme.color.backgroundDark};
+    transition: color 0.2s ease-in-out;
+  }
 `;
 
 export const ImageEvents = styled.img`
@@ -70,17 +109,27 @@ export const ImageEvents = styled.img`
   margin-bottom: 49px;
 
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+  @media (min-width: 1440px){
+    margin: 0;
+  }
 `;
 
 export const TextContainer = styled.div`
   margin-bottom: 27px;
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     width: 450px;
 
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 60px;
+  }
+
+  @media (min-width: 1440px) {
+    margin: 0;
+    margin-bottom: 60px;
+    margin-left: 125px;
   }
 `;
 
@@ -130,4 +179,32 @@ export const LinkButton = styled(NavLink)`
   background-color: ${(props) => props.theme.color.background};
   line-height: 0.94;
   letter-spacing: 2.5px;
+
+  border: 1px solid transparent;
+
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+    border 0.3s ease-in-out;
+
+  @media (min-width: 1440px) {
+    margin-bottom: 79px;
+    margin-left: 125px;
+
+    &:active,
+    &:hover,
+    &:focus {
+      color: ${(props) => props.theme.color.backgroundDark};
+      background-color: ${(props) => props.theme.color.textSecondary};
+      border: 1px solid ${(props) => props.theme.color.backgroundDark};
+
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+        border 0.3s ease-in-out;
+    }
+  }
 `;
+
+//desktop
+
+export const DesktopContainer = styled.div`
+
+text-align: left;
+`

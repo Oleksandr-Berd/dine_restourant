@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface IProps{
+    empty?:string
+}
+
 export const FiguresContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -30,14 +34,20 @@ export const Line = styled.div`
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 `;
 
-export const EventsLine = styled.div`
+export const EventsLine = styled.div<IProps>`
   width: 48px;
   height: 1px;
 
   margin-left: auto;
   margin-right: auto;
 
-  background-color: ${(props) => props.theme.color.accent};
+  background-color: ${(props) => props.empty === "true" ? "transparent" : props.theme.color.accent};
+  
+  @media (min-width: 1440px){
+    width: 95px;
+
+    margin-right: ${props => props.theme.space[8]};
+  }
 `;
 
 export const SquareStyled = styled.div`
@@ -54,6 +64,10 @@ export const SquareStyled = styled.div`
   background: linear-gradient(to bottom right, #979797, #ffffff);
 
   border-radius: 0 108px 0 0;
+
+  @media (min-width: 1440px){
+    transform: translateX(0%) translateY(85%);
+  }
 `;
 
 export const SquareGatheringStyled = styled.div`
@@ -71,6 +85,10 @@ export const SquareGatheringStyled = styled.div`
   background: linear-gradient(to bottom right, #979797, #ffffff);
 
   border-radius: 0 108px 0 0;
+
+  @media (min-width: 1440px) {
+    transform: translateX(-40%) translateY(0);
+  }
 `;
 
 export const LocalSquareStyled = styled.div`
@@ -86,21 +104,30 @@ export const LocalSquareStyled = styled.div`
   background: linear-gradient(to top left, #979797, #ffffff);
 
   border-radius: 108px 0 0 0;
+
+  @media (min-width: 1440px) {
+    transform: translateX(0%) translateY(0%);
+  }
 `;
 
 //LocalLines
 
 export const LocalLinesContainer = styled.div`
-position: absolute;
-z-index: 1;
-top: 0;
-right: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
 
-transform: translateY(450%) translateX(-20%);
+  transform: translateY(450%) translateX(-20%);
 
-display: flex;
-flex-direction:column
-`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 1440px) {
+    z-index: 20;
+    transform: translateY(450%) translateX(-55%);
+  }
+`;
 
 export const LocalLine = styled.div`
 width: 160px;
@@ -123,6 +150,10 @@ export const EventsLinesBlockContainerStyled = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 1440px) {
+    transform: translateY(160%) translateX(80%);
+  }
 `;
 
 export const EventsLinesBlockStyled = styled.div`

@@ -6,9 +6,7 @@ import { ReactComponent as LogoSvg } from "../../assets/images/logo.svg"
 
 
 const Footer = (): JSX.Element => {
-    const isTablet = useMediaQuery('(min-width:768px)')
-
-
+    const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1439px)')
 
     return (<SC.CommonContainer>
         <LogoSvg />
@@ -38,8 +36,8 @@ const Footer = (): JSX.Element => {
                 </SC.Schedule>
             </>
         }
-        
-    </SC.CommonContainer> );
+
+    </SC.CommonContainer>);
 }
- 
+
 export default Footer;

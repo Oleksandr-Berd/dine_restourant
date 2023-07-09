@@ -23,6 +23,19 @@ export const CommonContainer = styled.div`
     padding-right: 98px;
     padding-bottom: 0;
   }
+
+  @media (min-width: 1440px) {
+    min-width: 1440px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 0;
+
+    padding: 0;
+    padding-left: 165px;
+  }
 `;
 
 export const CommonContainerLocalFood = styled.div`
@@ -50,6 +63,21 @@ export const CommonContainerLocalFood = styled.div`
     padding-left: 97px;
     padding-right: 98px;
   }
+
+  @media (min-width: 1440px) {
+    z-index: 0;
+    overflow: visible;
+
+    min-width: 1440px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+    padding-left: 125px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -69,6 +97,10 @@ export const Title = styled.h1`
     letter-spacing: -0.5px;
     line-height: 1;
   }
+
+  @media (min-width: 1440px) {
+    width: auto;
+  }
 `;
 
 export const Text = styled.p`
@@ -84,6 +116,10 @@ export const Text = styled.p`
 
     font-size: ${(props) => props.theme.size.XN};
     line-height: 1.5;
+  }
+
+  @media (min-width: 1440px) {
+    width: auto;
   }
 `;
 
@@ -103,6 +139,13 @@ export const Image = styled.img`
 
     transform: translateX(18%) translateY(-40%);
   }
+
+  @media (min-width: 1440px) {
+    position: static;
+    transform: translateX(0) translateY(-10%);
+
+    margin: 0;
+  }
 `;
 
 export const LocalImage = styled.img`
@@ -111,4 +154,38 @@ export const LocalImage = styled.img`
   margin-right: auto;
 
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+  @media (min-width: 1440px) {
+    transform: translateY(10%);
+    z-index: 15;
+
+    margin: 0;
+
+  }
+`;
+
+//desktop
+
+export const DesktopEnjoyablePlaceContainer = styled.div`
+  width: 445px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin-left: 125px;
+
+  text-align: left;
+`;
+
+export const DesktopLocalContainer = styled.div`
+  width: 445px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin-right: 125px;
+
+  text-align: left;
 `;

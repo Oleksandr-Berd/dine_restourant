@@ -20,6 +20,12 @@ export const HeroStyled = styled.div<IProps>`
     padding-left: ${(props) => props.theme.space[10]};
     padding-right: ${(props) => props.theme.space[10]};
   }
+
+  @media (min-width: 1440px) {
+    padding-top: 65px;
+    padding-left: 165px;
+    padding-bottom: 198px;
+  }
 `;
 
 export const HeroContainer = styled.div`
@@ -27,9 +33,12 @@ export const HeroContainer = styled.div`
 
   color: ${(props) => props.theme.color.textSecondary};
 
- 
-`;
+  @media (min-width: 1440px) {
+    width: 480px;
 
+    text-align: left;
+  }
+`;
 
 export const SubTitle = styled.h2`
   margin-top: ${(props) => props.theme.space[9]};
@@ -41,8 +50,7 @@ export const SubTitle = styled.h2`
   line-height: 1.5;
 
   @media (min-width: 768px) {
-
-width: 300px;
+    width: 300px;
 
     margin-left: auto;
     margin-right: auto;
@@ -52,6 +60,18 @@ width: 300px;
     font-size: ${(props) => props.theme.size.SL};
     line-height: 1.33;
     letter-spacing: -0.6px;
+  }
+
+  @media (min-width: 1440px) {
+    margin: 0;
+    margin-top: 153px;
+    margin-bottom: 10px;
+
+    width: auto;
+
+    font-size: 80px;
+    line-height: 1;
+    letter-spacing: -1px;
   }
 `;
 
@@ -66,10 +86,13 @@ export const Text = styled.p`
     font-size: ${(props) => props.theme.size.XN};
     line-height: 1.5;
   }
+
+@media (min-width: 1440px){
+  width: 410px;
+}
 `;
 
 export const LinkButton = styled(NavLink)`
-
   padding-top: 25px;
   padding-bottom: 23px;
   padding-left: 54px;
@@ -86,5 +109,15 @@ export const LinkButton = styled(NavLink)`
 
   border: 1px solid ${(props) => props.theme.color.backgroundSecondary};
 
-  
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+  @media (min-width: 1440px) {
+    &:active,
+    &:hover,
+    &:focus {
+      color: ${(props) => props.theme.color.backgroundDark};
+      background-color: ${(props) => props.theme.color.textSecondary};
+      transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
+  }
 `;
