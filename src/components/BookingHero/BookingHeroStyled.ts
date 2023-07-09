@@ -106,4 +106,8 @@ export const ButtonLink = styled.a`
 
 export const LogoContainer = styled.div`
   text-align: left;
+
+  @media (min-width: 1440px){
+    margin-bottom: 153px;
+  }
 `;

@@ -2,14 +2,13 @@ import { Dropdown } from "react-bootstrap";
 import styled from "styled-components";
 
 interface IProps {
-    $filled?: string,
-    style?: object,
-    $isError?: string,
-}   
+  $filled?: string;
+  style?: object;
+  $isError?: string;
+}
 
 export const CommonContainer = styled.div`
-
-  padding-bottom: ${props => props.theme.space[9]};
+  padding-bottom: ${(props) => props.theme.space[9]};
   padding-right: ${(props) => props.theme.space[6]};
   padding-left: ${(props) => props.theme.space[6]};
 
@@ -18,9 +17,16 @@ export const CommonContainer = styled.div`
 
   text-align: center;
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     padding-right: 114px;
     padding-left: 114px;
+  }
+
+  @media (min-width: 1440px) {
+    position: relative;
+
+    margin: 0;
+    padding: 0;
   }
 `;
 
@@ -48,21 +54,31 @@ export const StyledForm = styled.form`
     padding-left: ${(props) => props.theme.space[11]};
     padding-right: ${(props) => props.theme.space[11]};
   }
+
+  @media (min-width: 1440px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform: translateX(735px) translateY(-400px); 
+
+    width: 540px;
+
+    margin: 0;
+  }
 `;
 
 export const InputContainer = styled.div`
-  margin-bottom: ${props => props.theme.space[7]};
-
+  margin-bottom: ${(props) => props.theme.space[7]};
 `;
 
 export const ErrorStyled = styled.span<IProps>`
-display: inline-block;
+  display: inline-block;
 
-margin-top: ${props => props.theme.space[2]};
+  margin-top: ${(props) => props.theme.space[2]};
 
-
-color: ${props => props.theme.color.error}
-`
+  color: ${(props) => props.theme.color.error};
+`;
 
 export const NameEmailInput = styled.input<IProps>`
   min-width: 100%;
@@ -87,9 +103,10 @@ export const NameEmailInput = styled.input<IProps>`
         ? props.theme.color.border
         : props.theme.color.error};
 
-&::placeholder{
-    color:${props => props.$isError === "true" ? props.theme.color.error : ""}
-}
+  &::placeholder {
+    color: ${(props) =>
+      props.$isError === "true" ? props.theme.color.error : ""};
+  }
 
   &&&:active {
     border: none;
@@ -108,7 +125,7 @@ export const Title = styled.h6`
   font-weight: ${(props) => props.theme.weight.normal};
   line-height: 1.4;
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     margin-bottom: 0;
   }
 `;
@@ -121,7 +138,7 @@ export const DateContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     min-width: auto;
   }
 `;
@@ -238,4 +255,16 @@ export const SubmitButton = styled.button`
   font-weight: ${(props) => props.theme.weight.bold};
   line-height: 1.65;
   letter-spacing: 2.5px;
+
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+  @media (min-width: 1440px) {
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: ${(props) => props.theme.color.textSecondary};
+      color: ${(props) => props.theme.color.backgroundDark};
+      transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
+  }
 `;
