@@ -90,21 +90,30 @@ export const LocalSquareStyled = styled.div`
   background: linear-gradient(to top left, #979797, #ffffff);
 
   border-radius: 108px 0 0 0;
+
+  @media (min-width: 1440px) {
+    transform: translateX(0%) translateY(0%);
+  }
 `;
 
 //LocalLines
 
 export const LocalLinesContainer = styled.div`
-position: absolute;
-z-index: 1;
-top: 0;
-right: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
 
-transform: translateY(450%) translateX(-20%);
+  transform: translateY(450%) translateX(-20%);
 
-display: flex;
-flex-direction:column
-`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 1440px) {
+    z-index: 20;
+    transform: translateY(450%) translateX(-55%);
+  }
+`;
 
 export const LocalLine = styled.div`
 width: 160px;

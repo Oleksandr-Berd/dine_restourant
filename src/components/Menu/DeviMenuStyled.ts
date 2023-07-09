@@ -20,6 +20,10 @@ export const MenuContainer = styled.div`
     padding-right: 98px;
     padding-bottom: 96px;
   }
+
+  @media (min-width: 1440px){
+    position: static;
+}
 `;
 
 export const TitleContainer = styled.div`

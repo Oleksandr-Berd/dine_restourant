@@ -65,9 +65,18 @@ export const CommonContainerLocalFood = styled.div`
   }
 
   @media (min-width: 1440px) {
-    margin: 0;
+    z-index: 0;
+    overflow: visible;
 
+    min-width: 1440px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 0;
     padding: 0;
+    padding-left: 125px;
   }
 `;
 
@@ -145,20 +154,38 @@ export const LocalImage = styled.img`
   margin-right: auto;
 
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+
+  @media (min-width: 1440px) {
+    transform: translateY(10%);
+    z-index: 15;
+
+    margin: 0;
+
+  }
 `;
 
 //desktop
 
 export const DesktopEnjoyablePlaceContainer = styled.div`
-width: 445px;
+  width: 445px;
 
-display: flex;
-flex-direction: column;
-align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
-margin-left: 125px;
+  margin-left: 125px;
 
-text-align: left;
+  text-align: left;
+`;
 
+export const DesktopLocalContainer = styled.div`
+  width: 445px;
 
-`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  margin-right: 125px;
+
+  text-align: left;
+`;
