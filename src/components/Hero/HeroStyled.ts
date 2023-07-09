@@ -108,4 +108,16 @@ export const LinkButton = styled(NavLink)`
   line-height: 0.94;
 
   border: 1px solid ${(props) => props.theme.color.backgroundSecondary};
+
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+  @media (min-width: 1440px) {
+    &:active,
+    &:hover,
+    &:focus {
+      color: ${(props) => props.theme.color.backgroundDark};
+      background-color: ${(props) => props.theme.color.textSecondary};
+      transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
+  }
 `;

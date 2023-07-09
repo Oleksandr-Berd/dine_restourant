@@ -20,6 +20,12 @@ export const CommonContainer = styled.footer`
     padding-bottom: 62px;
     padding-left: 39px;
   }
+
+  @media (min-width: 1440px){
+    padding-top: 78px;
+    padding-left: 165px;
+    padding-bottom: 76px;
+  }
 `;
 
 export const AddressContainer = styled.div`
@@ -41,6 +47,13 @@ export const AddressContainer = styled.div`
     margin-bottom: ${(props) => props.theme.space[8]};
 
     text-align: left;
+  }
+
+  @media (min-width: 1440px){
+    width: 200px;
+
+    margin-left: 193px;
+    margin-right: 124px;
   }
 `;
 
@@ -75,4 +88,8 @@ export const CommonAddressContainer = styled.div`
 margin-left: 130px;
 
 text-align: left;
+
+@media (min-width: 1440px){
+    margin: 0;
+}
 `

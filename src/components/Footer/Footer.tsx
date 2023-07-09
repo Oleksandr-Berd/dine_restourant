@@ -6,7 +6,8 @@ import { ReactComponent as LogoSvg } from "../../assets/images/logo.svg"
 
 
 const Footer = (): JSX.Element => {
-    const isTablet = useMediaQuery('(min-width:768px)')
+    const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1439px)')
+    const isDesktop = useMediaQuery('(min-width:1440px)')
 
 
 
