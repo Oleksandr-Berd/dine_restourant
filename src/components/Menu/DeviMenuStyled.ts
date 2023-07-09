@@ -21,16 +21,37 @@ export const MenuContainer = styled.div`
     padding-bottom: 96px;
   }
 
-  @media (min-width: 1440px){
+  @media (min-width: 1440px) {
     position: static;
-}
+
+    display: flex;
+    flex-direction: row;
+
+    padding-top: 200px;
+    padding-bottom: 120px;
+    padding-left: 165px;
+  }
 `;
 
 export const TitleContainer = styled.div`
   margin-bottom: 85px;
 
   @media (min-width: 768px) {
-    margin-bottom: 54pxpx;
+    margin-bottom: 54px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 650px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin: 0;
+
+    margin-right: 125px;
+
+    text-align: left;
   }
 `;
 
@@ -52,7 +73,7 @@ export const MainTitle = styled.h1`
 
 export const TextContainer = styled.div`
   @media (min-width: 768px) {
-padding-top: ${props => props.theme.space[3]};
+    padding-top: ${(props) => props.theme.space[3]};
 
     margin-left: 30px;
   }
@@ -101,7 +122,7 @@ export const SubTitle = styled.h2`
   font-size: ${(props) => props.theme.size.XN};
   line-height: 1.2;
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     text-align: left;
   }
 `;
@@ -116,3 +137,7 @@ export const ImageMenu = styled.img`
   }
 `;
 
+//desktop
+
+export const ItemsContainerList = styled.div`
+margin-top: ${props => props.theme.space[8]}`
