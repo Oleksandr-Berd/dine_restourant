@@ -21,6 +21,17 @@ export const CommonContainer = styled.div<IProps>`
     padding-bottom: 64px;
     padding-left: 66px;
   }
+
+  @media (min-width:1440px){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding-top: 88px;
+    padding-bottom: 88px;
+    padding-right: 165px;
+    padding-left: 165px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -59,4 +70,17 @@ export const LinkButton = styled(NavLink)`
   letter-spacing: 2.5px;
 
   border: 1px solid ${(props) => props.theme.color.backgroundSecondary};
+
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+  @media (min-width: 1440px) {
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: ${(props) => props.theme.color.textSecondary};
+      color: ${(props) => props.theme.color.backgroundDark};
+
+      transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    }
+  }
 `;
