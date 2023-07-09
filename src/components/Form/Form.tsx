@@ -1,12 +1,16 @@
 import * as React from 'react';
-import * as SC from './FormStyled';
 import Dropdown from 'react-bootstrap/Dropdown';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useReducer, ChangeEvent } from 'react';
-import { reducer, CounterActionType } from '../../utils/reducer';
 import { toast } from 'react-toastify';
 import { useMediaQuery } from 'usehooks-ts';
+
+import * as SC from './FormStyled';
+import * as Figure from "../Figures/FiguresStyled"
+import { reducer, CounterActionType } from '../../utils/reducer';
+import BookingLines from 'components/Figures/BookingLines';
+
 
 interface IValues {
     name: string,
@@ -42,6 +46,8 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
     const decrementQuantity = (): void => dispatch({ type: CounterActionType.DECREMENT });
 
     const isTablet = useMediaQuery('(min-width:768px)');
+    const isDesktop = useMediaQuery('(min-width:1440px)');
+
 
 
     const formik = useFormik<IValues>({
@@ -89,20 +95,20 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
 
         const validationValues = values.slice(0, values.length - 1)
 
-    
+
 
         validationValues.every(el => el) ?
-            submit({ name: name, email: email, date: { day: day, month: month, year: year }, time: { hour: hour, minute: minutes }, persons: state.quantity, dayPart: dayPart }) 
+            submit({ name: name, email: email, date: { day: day, month: month, year: year }, time: { hour: hour, minute: minutes }, persons: state.quantity, dayPart: dayPart })
             : toast.error('You need to fill all fields!', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        });
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
 
     }
 
@@ -111,6 +117,8 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
 
     return (
         <SC.CommonContainer id='reserve'>
+            {isDesktop ? <Figure.SquareBooking></Figure.SquareBooking> : null}
+            {isDesktop ? <BookingLines></BookingLines> : null}
             <SC.StyledForm onSubmit={handleSubmit}>
                 <SC.InputContainer>
                     <SC.NameEmailInput type="text" placeholder="Name" name="name" onChange={handleValuesChange} $filled={name.length > 0 ? "true" : "false"} $isError={formik.errors.name ? "true" : "false"} />

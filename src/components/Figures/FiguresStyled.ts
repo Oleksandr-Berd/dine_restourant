@@ -166,3 +166,31 @@ export const EventsLinesBlockStyled = styled.div`
     margin-bottom: ${(props) => props.theme.space[2]};
   }
 `;
+
+//booking
+
+export const SquareBooking = styled.div`
+  width: 993px;
+  min-height: 320px;
+
+  background: linear-gradient(to top left, #979797, #ffffff);
+
+  border-radius: 0 0 108px 0;
+`;
+
+export const BookingLinesStyled = styled.div`
+position: absolute;
+bottom: 0;
+left: 0;
+
+transform: translateX(655px) translateY(-98px);
+
+  width: 160px;
+  height: 6px;
+
+  background: ${(props) => props.theme.color.accent};
+
+  &:not(:last-child) {
+    margin-bottom: ${(props) => props.theme.space[2]};
+  }
+`;
