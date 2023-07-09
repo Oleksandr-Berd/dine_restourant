@@ -172,7 +172,7 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
                         <SC.DateInput type="number" min={0} max={12} placeholder="09" name="hour" onChange={handleValuesChange} $filled={hour ? "true" : "false"} $isError={formik.errors.hour ? "true" : "false"} />
                         <SC.DateInput type="number" min={0} max={59} placeholder="00" name="minutes" onChange={handleValuesChange} $filled={minutes || minutes === 0 ? "true" : "false"} $isError={formik.errors.minutes ? "true" : "false"} />
                         <Dropdown onSelect={handleTimeChange}>
-                            <SC.ToggleButton variant="success" id="dropdown-basic">
+                            <SC.ToggleButton id="dropdown-basic">
                                 {dayPart}
                             </SC.ToggleButton>
                             <Dropdown.Menu>
@@ -188,7 +188,7 @@ const BookingForm: React.FC<IProps> = ({ submit }): JSX.Element => {
                             <SC.DateInput type="number" min={0} max={12} placeholder="09" name="hour" onChange={handleValuesChange} $filled={hour ? "true" : "false"} $isError={formik.errors.hour ? "true" : "false"} />
                             <SC.DateInput type="number" min={0} max={59} placeholder="00" name="minutes" onChange={handleValuesChange} $filled={minutes || minutes === 0 ? "true" : "false"} $isError={formik.errors.minutes ? "true" : "false"} />
                             <Dropdown onSelect={handleTimeChange}>
-                                <SC.ToggleButton variant="success" id="dropdown-basic">
+                                <SC.ToggleButton id="dropdown-basic">
                                     {dayPart}
                                 </SC.ToggleButton>
                                 <Dropdown.Menu>

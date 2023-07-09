@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 interface IProps {
-  status?: string;
-  image?: string;
+  $status?: string;
+  $image?: string;
 }
 
 export const CommonContainer = styled.div<IProps>`
@@ -93,7 +93,7 @@ export const ButtonsItem = styled.button<IProps>`
 
   @media (min-width: 1440px) {
     color: ${(props) =>
-      props.status !== "true" ? "#8E8E8E" : props.theme.color.backgroundDark};
+      props.$status !== "true" ? "#8E8E8E" : props.theme.color.backgroundDark};
   }
   &:hover,
   &:focus,

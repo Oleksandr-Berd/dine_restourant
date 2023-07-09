@@ -73,17 +73,17 @@ const Events = (): JSX.Element => {
                     <SC.LinkButton to="/booking">book a table</SC.LinkButton>
                     <SC.ButtonsContainer>
                         <SC.ItemContainer>
-                            {active === "family gathering" ? <EventsLine /> : <EventsLine empty="true"/>}
-                            <SC.ButtonsItem onClick={handleActive} status={active === "family gathering" ? "true" : "false"}>family gathering</SC.ButtonsItem>
+                            {active === "family gathering" ? <EventsLine /> : <EventsLine $empty="true"/>}
+                            <SC.ButtonsItem onClick={handleActive} $status={active === "family gathering" ? "true" : "false"}>family gathering</SC.ButtonsItem>
                             
                         </SC.ItemContainer>
                         <SC.ItemContainer>
-                            {active === "special events" ? <EventsLine /> : <EventsLine empty="true" />}
-                            <SC.ButtonsItem onClick={handleActive} status={active === "special events" ? "true" : "false"}>special events</SC.ButtonsItem>
+                            {active === "special events" ? <EventsLine /> : <EventsLine $empty="true" />}
+                            <SC.ButtonsItem onClick={handleActive} $status={active === "special events" ? "true" : "false"}>special events</SC.ButtonsItem>
                         </SC.ItemContainer>
                         <SC.ItemContainer>
-                            {active === "social events" ? <EventsLine /> : <EventsLine empty="true" />}
-                            <SC.ButtonsItem onClick={handleActive} status={active === "social events" ? "true" : "false"}>social events</SC.ButtonsItem>
+                            {active === "social events" ? <EventsLine /> : <EventsLine $empty="true" />}
+                            <SC.ButtonsItem onClick={handleActive} $status={active === "social events" ? "true" : "false"}>social events</SC.ButtonsItem>
                         </SC.ItemContainer>
                     </SC.ButtonsContainer>
                 </SC.DesktopContainer>

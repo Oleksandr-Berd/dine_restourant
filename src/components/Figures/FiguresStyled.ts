@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface IProps{
-    empty?:string
+    $empty?:string
 }
 
 export const FiguresContainer = styled.div`
@@ -41,7 +41,7 @@ export const EventsLine = styled.div<IProps>`
   margin-left: auto;
   margin-right: auto;
 
-  background-color: ${(props) => props.empty === "true" ? "transparent" : props.theme.color.accent};
+  background-color: ${(props) => props.$empty === "true" ? "transparent" : props.theme.color.accent};
   
   @media (min-width: 1440px){
     width: 95px;
