@@ -54,6 +54,10 @@ export const SquareStyled = styled.div`
   background: linear-gradient(to bottom right, #979797, #ffffff);
 
   border-radius: 0 108px 0 0;
+
+  @media (min-width: 1440px){
+    transform: translateX(0%) translateY(85%);
+  }
 `;
 
 export const SquareGatheringStyled = styled.div`
